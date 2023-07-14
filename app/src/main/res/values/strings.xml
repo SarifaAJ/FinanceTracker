@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Finance</string>
+    <string name="expenses">Pengeluaran</string>
+    <string name="income">Pemasukan</string>
+
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm">Confirm Password</string>
+    <string name="question">Apakah Anda sudah menjadi pengguna? Masuk</string>
+    <string name="question_2">Apakah anda belum terdaftar? Daftar</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="log_in">LOG IN</string>
+
+    <string name="add_notes">Tambah Catatan</string>
+    <string name="edit_notes">Edit Catatan</string>
+
+    <string name="card_total">Total saldo anda :</string>
+    <string name="card_pengeluaran">Total pengeluaran anda :</string>
+    <string name="card_pemasukan">Total pemasukan anda :</string>
+
+    <string name="notes">Keterangan</string>
+    <string name="notes_add">Masukkan keterangan</string>
+    <string name="money">Jumlah uang</string>
+    <string name="money_add">Masukkan jumlah uang</string>
+    <string name="date">Dibuat tanggal : </string>
+    <string name="date_add">0000–00–00</string>
+    <string name="save">Simpan</string>
+</resources>

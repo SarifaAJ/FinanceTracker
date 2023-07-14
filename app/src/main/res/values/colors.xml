@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="grey">#9B9B9B</color>
+    <color name="light_grey">#E7E7E7</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="blueP_1">#304c89</color>
+    <color name="blueP_2">#648de5</color>
+    <color name="blueP_3">#9eb7e5</color>
+    <color name="blueP_4">#e8e5da</color>
+    <color name="blueP_5">#cdc392</color>
+
+    <color name="greenP_1">#132a13</color>
+    <color name="greenP_2">#31572c</color>
+    <color name="greenP_3">#4f772d</color>
+    <color name="greenP_4">#90a955</color>
+    <color name="greenP_5">#ecf39e</color>
+
+</resources>
