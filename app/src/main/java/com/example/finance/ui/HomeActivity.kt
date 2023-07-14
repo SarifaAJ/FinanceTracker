@@ -11,6 +11,8 @@ import com.example.finance.database.MyApp.Companion.db
 import com.example.finance.databinding.ActivityHomeBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import java.text.NumberFormat
+import java.util.Locale
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -37,11 +39,14 @@ class HomeActivity : AppCompatActivity() {
             startActivity(moveIntent)
         }
 
-        tabLayout = binding.tabLayout
+        // view pager
         viewPager2 = binding.viewPager2
 
         val homePageAdapter = HomePageAdapter(this)
         viewPager2.adapter = homePageAdapter
+
+        // tab layout
+        tabLayout = binding.tabLayout
 
         TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
             tab.text = resources.getString(TAB_TITLES[position])
@@ -49,13 +54,19 @@ class HomeActivity : AppCompatActivity() {
 
         supportActionBar?.elevation = 0f
 
+        // to show the amount of a nominal data
         val financeDao = db.financeDao()
         val totalNominal = financeDao?.getTotalNominal()
         val totalExpenses = financeDao?.getTotalExpenses()
         val totalIncome = financeDao?.getTotalIncome()
 
-        binding.edtTotal.text = totalNominal.toString()
-        binding.edtPengeluaran.text = totalExpenses.toString()
-        binding.edtPemasukan.text = totalIncome.toString()
+        val formatter = NumberFormat.getCurrencyInstance(Locale("in", "ID")) // currency format
+        val formattedTotalNominal = formatter.format(totalNominal)
+        val formattedTotalExpenses = formatter.format(totalExpenses)
+        val formattedTotalIncome = formatter.format(totalIncome)
+
+        binding.edtTotal.text = formattedTotalNominal
+        binding.edtPengeluaran.text = formattedTotalExpenses
+        binding.edtPemasukan.text = formattedTotalIncome
     }
 }

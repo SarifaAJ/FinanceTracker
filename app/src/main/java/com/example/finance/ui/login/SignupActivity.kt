@@ -20,14 +20,18 @@ class SignupActivity : AppCompatActivity() {
 
         db = DBHelper(this)
 
+        // button to home
         binding.btnUser.setOnClickListener {
             val moveIntent = Intent(this@SignupActivity, HomeActivity::class.java)
             startActivity(moveIntent)
         }
+        // button to sign up
         binding.confirmUser.setOnClickListener {
             val moveIntent = Intent(this@SignupActivity, LoginActivity::class.java)
             startActivity(moveIntent)
         }
+
+        // button to input your data to database, so that you can use it for login to
         binding.btnUser.setOnClickListener {
             val usernameText = binding.username.text.toString()
             val passwordText = binding.password.text.toString()

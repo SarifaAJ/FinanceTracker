@@ -28,99 +28,83 @@
                 android:orientation="vertical"
                 android:padding="@dimen/_12sdp">
 
-                <TableRow
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
 
-                        <TextView
-                            android:id="@+id/tv_pemasukan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:text="@string/card_pemasukan"
-                            android:textColor="@color/greenP_1"
-                            android:textSize="@dimen/_12sdp"
-                            android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/tv_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/card_total"
+                        android:textColor="@color/greenP_3"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/edt_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/money"
+                        android:textColor="@color/greenP_3"
+                        android:textSize="@dimen/_12sdp" />
+                </RelativeLayout>
 
-                        <TextView
-                            android:id="@+id/edt_pemasukan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:text="@string/money"
-                            android:textColor="@color/greenP_1"
-                            android:textSize="@dimen/_12sdp" />
-
-                    </RelativeLayout>
-                </TableRow>
-
-                <TableRow
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="@dimen/_4sdp">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_4sdp">
 
-                        <TextView
-                            android:id="@+id/tv_pengeluaran"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:text="@string/card_pengeluaran"
-                            android:textColor="@color/greenP_1"
-                            android:textSize="@dimen/_12sdp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/edt_pengeluaran"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:text="@string/money"
-                            android:textColor="@color/greenP_1"
-                            android:textSize="@dimen/_12sdp" />
-
-                    </RelativeLayout>
-                </TableRow>
+                    <TextView
+                        android:id="@+id/tv_pemasukan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/card_pemasukan"
+                        android:textColor="@color/greenP_3"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/edt_pemasukan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/money"
+                        android:textColor="@color/greenP_3"
+                        android:textSize="@dimen/_12sdp" />
+                </RelativeLayout>
 
                 <View
-                    android:layout_marginBottom="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_8sdp"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
-                    android:background="#D5D5D5"/>
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:background="#c2d0a1" />
 
-                <TableRow
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_4sdp">
 
-                        <TextView
-                            android:id="@+id/tv_total"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:text="@string/card_total"
-                            android:textColor="@color/greenP_1"
-                            android:textSize="@dimen/_12sdp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/edt_total"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:text="@string/money"
-                            android:textColor="@color/greenP_1"
-                            android:textSize="@dimen/_12sdp" />
-                    </RelativeLayout>
-                </TableRow>
+                    <TextView
+                        android:id="@+id/tv_pengeluaran"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/card_pengeluaran"
+                        android:textColor="@color/greenP_3"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/edt_pengeluaran"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/money"
+                        android:textColor="@color/greenP_3"
+                        android:textSize="@dimen/_12sdp" />
+                </RelativeLayout>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

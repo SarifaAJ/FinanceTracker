@@ -25,11 +25,12 @@ class EditExpensesNotesActivity : AppCompatActivity() {
         binding = ActivityEditExpensesNotesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //back button
+        // back button
         binding.btnBackArrow.setOnClickListener {
             finish()
         }
 
+        // to bring up the previous data
         val data = intent.getParcelableExtra("expenses data") ?: FinanceModel()
         Log.e("expenses data", "${data.nominal}.")
 

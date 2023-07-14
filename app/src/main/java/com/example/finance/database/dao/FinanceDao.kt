@@ -21,10 +21,10 @@ interface FinanceDao {
     @Query("SELECT SUM(nominal) FROM financemodel WHERE type = 'Pemasukan'")
     fun getTotalIncome(): Int
 
-    @Query("SELECT * FROM financemodel WHERE type = 'Pengeluaran' ORDER BY id DESC")
+    @Query("SELECT * FROM financemodel WHERE type = 'Pengeluaran' ORDER BY date DESC")
     fun getAllExpenses(): List<FinanceModel>?
 
-    @Query("SELECT * FROM financemodel WHERE type = 'Pemasukan' ORDER BY id DESC")
+    @Query("SELECT * FROM financemodel WHERE type = 'Pemasukan' ORDER BY date DESC")
     fun getAllIncome(): List<FinanceModel>?
 
     @Insert

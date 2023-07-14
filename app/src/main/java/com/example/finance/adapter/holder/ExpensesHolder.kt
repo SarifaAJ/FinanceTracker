@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.finance.R
 import com.example.finance.database.model.FinanceModel
 import com.example.finance.ui.expenses.EditExpensesNotesActivity
+import java.text.NumberFormat
+import java.util.Locale
 
 class ExpensesHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val tvMoney = itemView.findViewById<TextView>(R.id.tv_money)
@@ -15,7 +17,11 @@ class ExpensesHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val ctx = itemView.context
 
     fun setData(model : FinanceModel) {
-        tvMoney.text = model.nominal.toString()
+        // currency format
+        val formatter = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
+        val formattedNominal = formatter.format(model.nominal)
+        tvMoney.text = formattedNominal
+
         tvDesc.text = model.desc
         tvDate.text = model.date
         //menambahkan fungsi ketika rootview dari textview nama di klik

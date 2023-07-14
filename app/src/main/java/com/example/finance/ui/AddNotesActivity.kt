@@ -34,7 +34,7 @@ class AddNotesActivity : AppCompatActivity() {
             data.nominal = binding.edtMoney.text.toString().toInt()
             data.desc = binding.edtDesc.text.toString()
             data.date = getCurrentTime()
-            data.type = selectedChip!! // Set jenis data sebagai "Pengeluaran"
+            data.type = selectedChip!!
 
             val financeDao = db.financeDao()
             if (data.type == "Pengeluaran") {
@@ -44,7 +44,6 @@ class AddNotesActivity : AppCompatActivity() {
             } // Menggunakan metode insert yang mencakup pemasukan dan pengeluaran
 
             Toast.makeText(this@AddNotesActivity, "Catatan pengeluaran berhasil ditambahkan", Toast.LENGTH_SHORT).show()
-
             this@AddNotesActivity.finish()
         }
 

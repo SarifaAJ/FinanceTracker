@@ -20,14 +20,18 @@ class LoginActivity : AppCompatActivity() {
 
         db = DBHelper(this)
 
+        // button to home
         binding.btnUser.setOnClickListener {
             val moveIntent = Intent(this@LoginActivity, HomeActivity::class.java)
             startActivity(moveIntent)
         }
+        // button to sign up
         binding.confirmUser.setOnClickListener {
             val moveIntent = Intent(this@LoginActivity, SignupActivity::class.java)
             startActivity(moveIntent)
         }
+
+        // button to confirm your username and password before you go to home activity
         binding.btnUser.setOnClickListener {
             val usernameText = binding.username.text.toString()
             val passwordText = binding.password.text.toString()

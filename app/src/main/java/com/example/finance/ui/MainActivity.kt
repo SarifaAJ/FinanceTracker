@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // share preferences
         sharedPreferences = applicationContext.getSharedPreferences("pref", Context.MODE_PRIVATE)
 
         if (restorePrefData()) {
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             setPrefData()
 
+            // on boarding appearance
             val onBoardingData: MutableList<OnBoardingData> = ArrayList()
             onBoardingData.add(
                 OnBoardingData(
@@ -79,9 +81,9 @@ class MainActivity : AppCompatActivity() {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
                     position = tab?.position ?: 0
                     if (tab?.position == onBoardingData.size - 1) {
-                        binding.next.text = "Get Started"
+                        binding.next.text = getString(R.string.get_started)
                     } else {
-                        binding.next.text = "Next"
+                        binding.next.text = getString(R.string.next)
                     }
                 }
 
