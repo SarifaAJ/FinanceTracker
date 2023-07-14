@@ -3,6 +3,9 @@
     <string name="expenses">Pengeluaran</string>
     <string name="income">Pemasukan</string>
 
+    <string name="get_started">Get Started</string>
+    <string name="next">Next</string>
+
     <string name="username">Username</string>
     <string name="email">Email</string>
     <string name="password">Password</string>

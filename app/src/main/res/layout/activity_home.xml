@@ -33,16 +33,17 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tv_total"
+                        android:id="@+id/tv_pemasukan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:text="@string/card_total"
+                        android:text="@string/card_pemasukan"
                         android:textColor="@color/greenP_3"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
+
                     <TextView
-                        android:id="@+id/edt_total"
+                        android:id="@+id/edt_pemasukan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -57,16 +58,17 @@
                     android:layout_marginTop="@dimen/_4sdp">
 
                     <TextView
-                        android:id="@+id/tv_pemasukan"
+                        android:id="@+id/tv_pengeluaran"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:text="@string/card_pemasukan"
+                        android:text="@string/card_pengeluaran"
                         android:textColor="@color/greenP_3"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
+
                     <TextView
-                        android:id="@+id/edt_pemasukan"
+                        android:id="@+id/edt_pengeluaran"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -84,20 +86,18 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_4sdp">
-
+                    android:layout_height="match_parent">
                     <TextView
-                        android:id="@+id/tv_pengeluaran"
+                        android:id="@+id/tv_total"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:text="@string/card_pengeluaran"
+                        android:text="@string/card_total"
                         android:textColor="@color/greenP_3"
                         android:textSize="@dimen/_12sdp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
                     <TextView
-                        android:id="@+id/edt_pengeluaran"
+                        android:id="@+id/edt_total"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
