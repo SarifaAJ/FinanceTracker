@@ -6,7 +6,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finance.R
 import com.example.finance.database.model.FinanceModel
-import com.example.finance.ui.expenses.EditExpensesNotesActivity
 import com.example.finance.ui.income.EditIncomeNotesActivity
 
 class IncomeHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

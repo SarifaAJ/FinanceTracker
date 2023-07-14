@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finance.R
-import com.example.finance.adapter.holder.ExpensesHolder
 import com.example.finance.adapter.holder.IncomeHolder
 import com.example.finance.database.model.FinanceModel
 

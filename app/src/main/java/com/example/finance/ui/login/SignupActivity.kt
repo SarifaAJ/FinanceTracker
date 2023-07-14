@@ -8,7 +8,6 @@ import android.widget.Toast
 import com.example.finance.database.helper.DBHelper
 import com.example.finance.databinding.ActivitySignupBinding
 import com.example.finance.ui.HomeActivity
-import com.example.finance.ui.MainActivity
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding

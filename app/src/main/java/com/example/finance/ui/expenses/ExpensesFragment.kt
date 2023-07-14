@@ -9,14 +9,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finance.adapter.ExpensesAdapter
 import com.example.finance.database.MyApp.Companion.db
-import com.example.finance.database.model.FinanceModel
 import com.example.finance.databinding.FragmentExpensesBinding
 
 class ExpensesFragment : Fragment() {
     private lateinit var binding: FragmentExpensesBinding
 
     // database
-    private var listExpenses : ArrayList<FinanceModel> = ArrayList()
     private lateinit var adapter : ExpensesAdapter
 
     override fun onCreateView(

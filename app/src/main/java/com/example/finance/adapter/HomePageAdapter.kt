@@ -19,5 +19,4 @@ class HomePageAdapter (activity: AppCompatActivity) : FragmentStateAdapter(activ
         }
         return fragment as Fragment
     }
-
 }
