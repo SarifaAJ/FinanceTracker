@@ -1,6 +1,7 @@
 package com.example.finance.ui.login
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -12,6 +13,8 @@ import com.example.finance.ui.HomeActivity
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
     private lateinit var db : DBHelper
+
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,9 +46,8 @@ class SignupActivity : AppCompatActivity() {
             } else {
                 if (passwordText == confirmPassText) {
                     if (savedData) {
-
                         Toast.makeText(this, "Sign Up successful", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(applicationContext, HomeActivity::class.java)
+                        val intent = Intent(applicationContext, LoginActivity::class.java)
                         startActivity(intent)
                     } else {
                         Toast.makeText(this, "User exists", Toast.LENGTH_SHORT).show()
