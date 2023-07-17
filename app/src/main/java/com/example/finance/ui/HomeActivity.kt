@@ -1,5 +1,6 @@
 package com.example.finance.ui
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,6 +20,8 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager2: ViewPager2
+
+    private lateinit var username: String
 
     companion object {
         @StringRes
@@ -53,6 +56,13 @@ class HomeActivity : AppCompatActivity() {
         }.attach()
 
         supportActionBar?.elevation = 0f
+
+        // Mendapatkan data username dari SharedPreferences
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        username = sharedPreferences.getString("username", "") ?: ""
+
+        // Mengatur nilai username ke edt_username
+        binding.edtUsername.text = username
 
         // to show the amount of a nominal data
         val financeDao = db.financeDao()

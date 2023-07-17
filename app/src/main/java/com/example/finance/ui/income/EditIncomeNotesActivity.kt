@@ -11,6 +11,7 @@ import com.example.finance.database.MyApp.Companion.db
 import com.example.finance.database.model.FinanceModel
 import com.example.finance.databinding.ActivityEditIncomeNotesBinding
 import com.google.android.material.chip.Chip
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -33,7 +34,8 @@ class EditIncomeNotesActivity : AppCompatActivity() {
         val data = intent.getParcelableExtra("income data") ?: FinanceModel()
         Log.e("income data", "${data.nominal}.")
 
-        binding.edtMoney.setText(data.nominal.toString())
+        val formatter = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
+        binding.edtMoney.setText(formatter.format(data.nominal))
         binding.edtDesc.setText(data.desc)
         binding.tvDate.setText(data.date)
 
@@ -57,7 +59,8 @@ class EditIncomeNotesActivity : AppCompatActivity() {
         }
 
         binding.saveBtn.setOnClickListener {
-            data.nominal = binding.edtMoney.text.toString().toInt()
+            val formattedNominal = binding.edtMoney.text.toString().replace("[^\\d]".toRegex(), "").toInt()
+            data.nominal = formattedNominal
             data.desc = binding.edtDesc.text.toString()
             data.date = getCurrentDateTime()
             data.type = selectedChip ?: ""

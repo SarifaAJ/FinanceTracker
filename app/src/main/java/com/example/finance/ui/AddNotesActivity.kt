@@ -28,23 +28,43 @@ class AddNotesActivity : AppCompatActivity() {
             finish()
         }
 
+        // Set data.date dengan waktu saat ini
+        binding.date.text = getCurrentTime()
+
         // save button
         binding.saveBtn.setOnClickListener {
             val data = FinanceModel()
-            data.nominal = binding.edtMoney.text.toString().toInt()
+            if (binding.edtMoney.text.toString().isNotBlank()) {
+                data.nominal = binding.edtMoney.text.toString().toInt()
+            } else {
+                Toast.makeText(this@AddNotesActivity, "Harap isi data nominal", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             data.desc = binding.edtDesc.text.toString()
-            data.date = getCurrentTime()
-            data.type = selectedChip!!
+            data.date = binding.date.text.toString()
+
+            if (selectedChip.isNullOrEmpty()) {
+                Toast.makeText(this@AddNotesActivity, "Harap pilih jenis data", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            } else {
+                data.type = selectedChip!!
+            }
 
             val financeDao = db.financeDao()
-            if (data.type == "Pengeluaran") {
-                financeDao?.insert(data) // Insert data ke tabel pengeluaran
-            } else if (data.type == "Pemasukan") {
-                financeDao?.insert(data) // Insert data ke tabel pemasukan
-            } // Menggunakan metode insert yang mencakup pemasukan dan pengeluaran
 
-            Toast.makeText(this@AddNotesActivity, "Catatan pengeluaran berhasil ditambahkan", Toast.LENGTH_SHORT).show()
-            this@AddNotesActivity.finish()
+            if (data.desc.isEmpty()) {
+                Toast.makeText(this@AddNotesActivity, "Harap lengkapi semua data", Toast.LENGTH_SHORT).show()
+            } else {
+                if (data.type == "Pengeluaran") {
+                    financeDao?.insert(data) // Insert data ke tabel pengeluaran
+                } else if (data.type == "Pemasukan") {
+                    financeDao?.insert(data) // Insert data ke tabel pemasukan
+                } // Menggunakan metode insert yang mencakup pemasukan dan pengeluaran
+
+                Toast.makeText(this@AddNotesActivity, "Catatan pengeluaran berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+                this@AddNotesActivity.finish()
+            }
         }
 
         // Chip Group Listener

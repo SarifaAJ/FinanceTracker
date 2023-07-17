@@ -1,6 +1,8 @@
 package com.example.finance.ui.login
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -13,12 +15,14 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var db : DBHelper
 
+    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         db = DBHelper(this)
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
         // button to home
         binding.btnUser.setOnClickListener {
@@ -41,6 +45,11 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 val checkUser = db.checkUserPass(usernameText, passwordText)
                 if (checkUser) {
+                    // Simpan username ke SharedPreferences
+                    val editor = sharedPreferences.edit()
+                    editor.putString("username", usernameText)
+                    editor.apply()
+
                     Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
                     val intent = Intent(applicationContext, HomeActivity::class.java)
                     startActivity(intent)

@@ -4,128 +4,185 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:padding="@dimen/_8sdp"
+    android:background="@color/green_3"
     tools:context=".ui.HomeActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
         android:orientation="vertical">
-        <androidx.cardview.widget.CardView
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_8sdp"
-            android:padding="@dimen/_8sdp"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/green_2"
-            app:cardCornerRadius="@dimen/_16sdp">
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp">
 
-            <LinearLayout
+            <ImageView
+                android:id="@+id/picture"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:foreground="@drawable/round_person_24"
+                android:foregroundGravity="center"
+                app:srcCompat="@drawable/rectangle" />
+
+            <TextView
+                android:id="@+id/greeting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/picture"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/edt_username"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:text="@string/welcome"
+                android:textColor="@color/green_1"
+                android:textSize="@dimen/_12sdp" />
+
+            <TextView
+                android:id="@+id/edt_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/picture"
+                app:layout_constraintTop_toBottomOf="@id/greeting"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="@string/username"
+                android:textColor="@color/green_1"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:text="@string/card_total"
+            android:textColor="@color/green_1"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/edt_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:text="@string/money"
+            android:textColor="@color/green_1"
+            android:textSize="@dimen/_32sdp"
+            android:textStyle="bold" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/_12sdp">
+                android:layout_weight="1">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/down"
+                    android:layout_width="@dimen/_32sdp"
+                    android:layout_height="@dimen/_32sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:srcCompat="@drawable/round_trending_down_24" />
 
-                    <TextView
-                        android:id="@+id/tv_pemasukan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:text="@string/card_pemasukan"
-                        android:textColor="@color/green_1"
-                        android:textSize="@dimen/_12sdp"
-                        android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_pengeluaran"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/edt_pengeluaran"
+                    android:layout_marginStart="@dimen/_36sdp"
+                    android:text="@string/card_pengeluaran"
+                    android:textColor="@color/green_1"
+                    android:textSize="@dimen/_12sdp"/>
 
-                    <TextView
-                        android:id="@+id/edt_pemasukan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:text="@string/money"
-                        android:textColor="@color/green_1"
-                        android:textSize="@dimen/_12sdp" />
-                </RelativeLayout>
+                <TextView
+                    android:id="@+id/edt_pengeluaran"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_pengeluaran"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="@dimen/_36sdp"
+                    android:text="@string/money"
+                    android:textColor="@color/green_1"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_4sdp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-                    <TextView
-                        android:id="@+id/tv_pengeluaran"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:text="@string/card_pengeluaran"
-                        android:textColor="@color/green_1"
-                        android:textSize="@dimen/_12sdp"
-                        android:textStyle="bold" />
+                <ImageView
+                    android:id="@+id/up"
+                    android:layout_width="@dimen/_32sdp"
+                    android:layout_height="@dimen/_32sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:srcCompat="@drawable/round_trending_up_24" />
 
-                    <TextView
-                        android:id="@+id/edt_pengeluaran"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:text="@string/money"
-                        android:textColor="@color/green_1"
-                        android:textSize="@dimen/_12sdp" />
-                </RelativeLayout>
+                <TextView
+                    android:id="@+id/tv_pemasukan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/edt_pemasukan"
+                    android:layout_marginStart="@dimen/_36sdp"
+                    android:text="@string/card_pemasukan"
+                    android:textColor="@color/green_1"
+                    android:textSize="@dimen/_12sdp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_1sdp"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:layout_marginBottom="@dimen/_8sdp"
-                    android:background="@color/green_3" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/tv_total"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:text="@string/card_total"
-                        android:textColor="@color/green_1"
-                        android:textSize="@dimen/_12sdp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:id="@+id/edt_total"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:text="@string/money"
-                        android:textColor="@color/green_1"
-                        android:textSize="@dimen/_12sdp" />
-                </RelativeLayout>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/edt_pemasukan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_pemasukan"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="@dimen/_36sdp"
+                    android:text="@string/money"
+                    android:textColor="@color/green_1"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </TableRow>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:layout_margin="@dimen/_8sdp"
+            android:background="@color/green_3"
             app:tabIndicator="@drawable/tab_indicator"
             app:tabIndicatorAnimationMode="elastic"
             app:tabIndicatorColor="@null"
             app:tabIndicatorGravity="stretch"
             app:tabMode="fixed"
             app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="@color/green_3" />
+            app:tabTextColor="@color/white" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="@color/green_3"/>
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

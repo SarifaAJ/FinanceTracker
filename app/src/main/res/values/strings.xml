@@ -18,9 +18,10 @@
     <string name="add_notes">Tambah Catatan</string>
     <string name="edit_notes">Edit Catatan</string>
 
-    <string name="card_total">Total saldo anda :</string>
-    <string name="card_pengeluaran">Total pengeluaran anda :</string>
-    <string name="card_pemasukan">Total pemasukan anda :</string>
+    <string name="welcome">Selamat datang</string>
+    <string name="card_total">Total saldo :</string>
+    <string name="card_pengeluaran">Total pengeluaran :</string>
+    <string name="card_pemasukan">Total pemasukan :</string>
 
     <string name="notes">Keterangan</string>
     <string name="notes_add">Masukkan keterangan</string>

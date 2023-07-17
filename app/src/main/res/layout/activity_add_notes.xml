@@ -81,6 +81,7 @@
                 android:textSize="@dimen/_10sdp" />
 
             <TextView
+                android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_8sdp"
@@ -137,8 +138,6 @@
             android:textColorHint="@color/grey"
             android:textSize="@dimen/_12sdp"
             android:textColor="@color/black"/>
-
-
     </LinearLayout>
 
     <Button

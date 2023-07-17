@@ -43,6 +43,7 @@ class SignupActivity : AppCompatActivity() {
             } else {
                 if (passwordText == confirmPassText) {
                     if (savedData) {
+
                         Toast.makeText(this, "Sign Up successful", Toast.LENGTH_SHORT).show()
                         val intent = Intent(applicationContext, HomeActivity::class.java)
                         startActivity(intent)
