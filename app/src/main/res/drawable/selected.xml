@@ -7,7 +7,7 @@
             android:thickness="@dimen/_2sdp"
             android:innerRadius="@dimen/_3sdp"
             android:useLevel="false">
-            <solid android:color="@color/greenP_4"/>
+            <solid android:color="@color/green_2"/>
         </shape>
     </item>
 </layer-list>

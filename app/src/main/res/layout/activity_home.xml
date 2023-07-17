@@ -19,7 +19,7 @@
             android:layout_margin="@dimen/_8sdp"
             android:padding="@dimen/_8sdp"
             android:layout_gravity="center"
-            android:backgroundTint="@color/greenP_4"
+            android:backgroundTint="@color/green_2"
             app:cardCornerRadius="@dimen/_16sdp">
 
             <LinearLayout
@@ -38,7 +38,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:text="@string/card_pemasukan"
-                        android:textColor="@color/greenP_3"
+                        android:textColor="@color/green_1"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
 
@@ -48,7 +48,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:text="@string/money"
-                        android:textColor="@color/greenP_3"
+                        android:textColor="@color/green_1"
                         android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
 
@@ -63,7 +63,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:text="@string/card_pengeluaran"
-                        android:textColor="@color/greenP_3"
+                        android:textColor="@color/green_1"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
 
@@ -73,7 +73,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:text="@string/money"
-                        android:textColor="@color/greenP_3"
+                        android:textColor="@color/green_1"
                         android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
 
@@ -82,7 +82,7 @@
                     android:layout_height="@dimen/_1sdp"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginBottom="@dimen/_8sdp"
-                    android:background="#c2d0a1" />
+                    android:background="@color/green_3" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -93,7 +93,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:text="@string/card_total"
-                        android:textColor="@color/greenP_3"
+                        android:textColor="@color/green_1"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
                     <TextView
@@ -102,7 +102,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:text="@string/money"
-                        android:textColor="@color/greenP_3"
+                        android:textColor="@color/green_1"
                         android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
 
@@ -120,7 +120,7 @@
             app:tabIndicatorGravity="stretch"
             app:tabMode="fixed"
             app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="@color/greenP_4" />
+            app:tabTextColor="@color/green_3" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager2"
@@ -136,7 +136,7 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/_16sdp"
         android:clickable="true"
-        android:backgroundTint="@color/greenP_4"
+        android:backgroundTint="@color/green_2"
         android:src="@drawable/round_add_24" />
 
 </RelativeLayout>

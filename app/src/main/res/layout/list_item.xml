@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_8sdp"
             android:textSize="@dimen/_10sdp"
-            android:textColor="@color/greenP_3"
+            android:textColor="@color/green_2"
             android:text="@string/date"/>
 
     </LinearLayout>
