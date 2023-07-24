@@ -14,8 +14,8 @@ class HomePageAdapter (activity: AppCompatActivity) : FragmentStateAdapter(activ
     override fun createFragment(position: Int): Fragment {
         var fragment: Fragment? = null
         when (position) {
-            0 -> fragment = ExpensesFragment()
-            1 -> fragment = IncomeFragment()
+            0 -> fragment = IncomeFragment()
+            1 -> fragment = ExpensesFragment()
         }
         return fragment as Fragment
     }

@@ -15,7 +15,7 @@ class MyApp : Application() {
         db = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java, "finance"
-        ).allowMainThreadQueries().build()
+        ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
         financeDao = db.financeDao()!!
     }
 }

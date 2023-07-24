@@ -3,6 +3,8 @@ package com.example.finance.ui.expenses
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
@@ -20,6 +22,37 @@ class EditExpensesNotesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEditExpensesNotesBinding
     private var selectedChip: String? = null
 
+    // currency format
+    private var rawNumericValue: Long = 0
+    private val textWatcher = object : TextWatcher {
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            // No need to do anything here
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            // No need to do anything here
+        }
+
+        override fun afterTextChanged(s: Editable?) {
+            // Remove the old currency format to get the raw value
+            val rawValue = s.toString().replace("[^\\d]".toRegex(), "")
+
+            // Store the raw numeric value in cents
+            rawNumericValue = rawValue.toLong()
+
+            // Format the raw value to currency format
+            val currencyFormatter = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
+
+            val formattedValue = currencyFormatter.format(rawNumericValue / 100)
+
+            // Set the formatted value back to the EditText
+            binding.edtMoney.removeTextChangedListener(this)
+            binding.edtMoney.setText(formattedValue)
+            binding.edtMoney.setSelection(formattedValue.length - 3)
+            binding.edtMoney.addTextChangedListener(this)
+        }
+    }
+
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,10 +66,18 @@ class EditExpensesNotesActivity : AppCompatActivity() {
 
         // to bring up the previous data
         val data = intent.getParcelableExtra("expenses data") ?: FinanceModel()
-        Log.e("expenses data", "${data.nominal}.")
 
-        val formatter = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
-        binding.edtMoney.setText(formatter.format(data.nominal))
+        // Set currency format for edtMoney
+        val currencyFormatter = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
+
+        // Convert data.nominal to raw numeric value in cents
+        rawNumericValue = (data.nominal * 100).toLong()
+
+        // Format the raw numeric value to currency format
+        val formattedValue = currencyFormatter.format(rawNumericValue / 100)
+
+        // Set the formatted value to the EditText
+        binding.edtMoney.setText(formattedValue)
         binding.edtDesc.setText(data.desc)
         binding.tvDate.setText(data.date)
 
@@ -60,8 +101,13 @@ class EditExpensesNotesActivity : AppCompatActivity() {
         }
 
         binding.saveBtn.setOnClickListener {
-            val formattedNominal = binding.edtMoney.text.toString().replace("[^\\d]".toRegex(), "").toInt()
-            data.nominal = formattedNominal
+            if (rawNumericValue != 0L) {
+                data.nominal = (rawNumericValue / 100).toInt()
+            } else {
+                Toast.makeText(this@EditExpensesNotesActivity, "Harap isi data nominal", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             data.desc = binding.edtDesc.text.toString()
             data.date = getCurrentDateTime()
             data.type = selectedChip ?: ""
@@ -88,11 +134,14 @@ class EditExpensesNotesActivity : AppCompatActivity() {
             Toast.makeText(this@EditExpensesNotesActivity, "Catatan berhasil dihapus", Toast.LENGTH_SHORT).show()
             this@EditExpensesNotesActivity.finish()
         }
+
+        // Add the TextWatcher to the edtMoney EditText
+        binding.edtMoney.addTextChangedListener(textWatcher)
     }
 
     // retrieve date in real-time
     private fun getCurrentDateTime():String {
-        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale("id"))
+        val sdf = SimpleDateFormat("HH:mm dd MMMM yyyy", Locale("id"))
         return sdf.format(Date())
     }
 

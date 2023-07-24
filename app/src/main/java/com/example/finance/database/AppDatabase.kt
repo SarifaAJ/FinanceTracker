@@ -7,7 +7,7 @@ import com.example.finance.database.converters.Converters
 import com.example.finance.database.dao.FinanceDao
 import com.example.finance.database.model.FinanceModel
 
-@Database(entities = [FinanceModel::class], version = 1)
+@Database(entities = [FinanceModel::class], version = 2)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun financeDao() : FinanceDao?

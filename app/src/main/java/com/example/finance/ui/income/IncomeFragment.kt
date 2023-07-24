@@ -13,9 +13,7 @@ import com.example.finance.databinding.FragmentIncomeBinding
 
 class IncomeFragment : Fragment() {
     private lateinit var binding: FragmentIncomeBinding
-
-    // database
-    private lateinit var adapter : IncomeAdapter
+    private lateinit var adapter: IncomeAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,11 +30,18 @@ class IncomeFragment : Fragment() {
         val incomeList = incomeDao?.getAllIncome()
 
         adapter = IncomeAdapter(incomeList!!)
-
         val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
+    }
 
-        adapter.notifyDataSetChanged()
+    override fun onResume() {
+        super.onResume()
+
+        // Refresh data when the fragment is resumed
+        val incomeDao = db.financeDao()
+        val incomeList = incomeDao?.getAllIncome()
+
+        adapter.updateData(incomeList!!)
     }
 }

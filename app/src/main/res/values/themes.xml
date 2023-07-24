@@ -11,4 +11,5 @@
     </style>
 
     <style name="Theme.Finance" parent="Base.Theme.Finance" />
+
 </resources>

@@ -19,4 +19,10 @@ class IncomeAdapter(private var data: List<FinanceModel>) : RecyclerView.Adapter
     override fun onBindViewHolder(holder: IncomeHolder, position: Int) {
         holder.setData(data[position])
     }
+
+    fun updateData(newIncomeList: List<FinanceModel>) {
+        data = newIncomeList
+        notifyDataSetChanged()
+    }
+
 }

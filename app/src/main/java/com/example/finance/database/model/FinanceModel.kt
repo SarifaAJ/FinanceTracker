@@ -5,8 +5,11 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.example.finance.database.converters.Converters
 
 @Entity
+@TypeConverters(Converters::class)
 class FinanceModel() : Parcelable{
     @PrimaryKey(autoGenerate = true)
     var id = 0
@@ -18,6 +21,8 @@ class FinanceModel() : Parcelable{
     var date : String = ""
     @ColumnInfo(name = "type")
     var type : String = ""
+    @ColumnInfo(name = "month")
+    var month: String = ""
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readInt()
@@ -25,6 +30,7 @@ class FinanceModel() : Parcelable{
         desc = parcel.readString().toString()
         date = parcel.readString().toString()
         type = parcel.readString().toString()
+        month = parcel.readString().toString()
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -33,6 +39,7 @@ class FinanceModel() : Parcelable{
         parcel.writeString(desc)
         parcel.writeString(date)
         parcel.writeString(type)
+        parcel.writeString(month)
     }
 
     override fun describeContents(): Int {
@@ -48,5 +55,4 @@ class FinanceModel() : Parcelable{
             return arrayOfNulls(size)
         }
     }
-
 }

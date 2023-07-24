@@ -36,7 +36,16 @@ class ExpensesFragment : Fragment() {
         val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
-
-        adapter.notifyDataSetChanged()
     }
+
+    override fun onResume() {
+        super.onResume()
+
+        // Refresh data when the fragment is resumed
+        val expensesDao = db.financeDao()
+        val expensesList = expensesDao?.getAllExpenses()
+
+        adapter.updateData(expensesList!!)
+    }
+
 }

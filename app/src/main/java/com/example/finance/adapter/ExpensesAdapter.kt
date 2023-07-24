@@ -19,4 +19,10 @@ class ExpensesAdapter(private var data: List<FinanceModel>) : RecyclerView.Adapt
     override fun onBindViewHolder(holder: ExpensesHolder, position: Int) {
         holder.setData(data[position])
     }
+
+    fun updateData(newExpensesList: List<FinanceModel>) {
+        data = newExpensesList
+        notifyDataSetChanged()
+    }
+
 }
