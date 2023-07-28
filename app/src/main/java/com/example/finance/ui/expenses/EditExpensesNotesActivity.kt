@@ -5,14 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.MenuItem
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.finance.R
 import com.example.finance.database.MyApp.Companion.db
 import com.example.finance.database.model.FinanceModel
 import com.example.finance.databinding.ActivityEditExpensesNotesBinding
-import com.google.android.material.chip.Chip
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -20,7 +19,6 @@ import java.util.Locale
 
 class EditExpensesNotesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEditExpensesNotesBinding
-    private var selectedChip: String? = null
 
     // currency format
     private var rawNumericValue: Long = 0
@@ -81,24 +79,18 @@ class EditExpensesNotesActivity : AppCompatActivity() {
         binding.edtDesc.setText(data.desc)
         binding.tvDate.setText(data.date)
 
-        // Chip Group Listener
-        binding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
-            val chip = findViewById<Chip>(checkedId)
-            chip?.let {
-                selectedChip = when (it.id) {
-                    R.id.chip_pengeluaran -> "Pengeluaran"
-                    R.id.chip_pemasukan -> "Pemasukan"
-                    else -> null
-                }
-            }
-        }
+        // dropdown
+        val type = resources.getStringArray(R.array.type_drop_down)
+        val typeAdapter = ArrayAdapter(this, R.layout.dropdown_item, type)
+        binding.typeDropdown.setAdapter(typeAdapter)
 
-        // Set selected chip
-        if (data.type == "Pengeluaran") {
-            binding.chipGroup.check(R.id.chip_pengeluaran)
-        } else if (data.type == "Pemasukan") {
-            binding.chipGroup.check(R.id.chip_pemasukan)
+        // Set the initial selection of the dropdown based on the previously saved data.type
+        val selectedTypeIndex = if (data.type == "Pengeluaran") {
+            1 // "Expense" in the dropdown
+        } else {
+            0 // "Income" in the dropdown
         }
+        binding.typeDropdown.setText(type[selectedTypeIndex], false)
 
         binding.saveBtn.setOnClickListener {
             if (rawNumericValue != 0L) {
@@ -109,9 +101,15 @@ class EditExpensesNotesActivity : AppCompatActivity() {
             }
 
             data.desc = binding.edtDesc.text.toString()
-            data.date = getCurrentDateTime()
-            data.type = selectedChip ?: ""
+            data.date = getCurrentTime()
 
+            // Get the selected type from the dropdown
+            val selectedType = binding.typeDropdown.text.toString()
+            data.type = if (selectedType == "Income") {
+                "Pemasukan"
+            } else {
+                "Pengeluaran"
+            }
             val financeDao = db.financeDao()
             if (data.type == "Pengeluaran") {
                 financeDao?.update(data) // Update data pada tabel pengeluaran
@@ -140,10 +138,11 @@ class EditExpensesNotesActivity : AppCompatActivity() {
     }
 
     // retrieve date in real-time
-    private fun getCurrentDateTime():String {
-        val sdf = SimpleDateFormat("HH:mm dd MMMM yyyy", Locale("id"))
+    private fun getCurrentTime(): String {
+        val sdf = SimpleDateFormat("yyy-MM-dd HH:mm:ss", Locale("id"))
         return sdf.format(Date())
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {

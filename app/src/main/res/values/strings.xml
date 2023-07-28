@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Finance</string>
-    <string name="expenses">Pengeluaran</string>
-    <string name="income">Pemasukan</string>
+    <string name="expenses">Expense</string>
+    <string name="income">Income</string>
 
     <string name="get_started">Get Started</string>
     <string name="next">Next</string>
@@ -15,35 +15,44 @@
     <string name="sign_up">SIGN UP</string>
     <string name="log_in">LOG IN</string>
 
-    <string name="add_notes">Tambah Catatan</string>
-    <string name="edit_notes">Edit Catatan</string>
+    <string name="add_notes">Add Note</string>
+    <string name="edit_notes">Edit Note</string>
 
-    <string name="welcome">Selamat datang</string>
-    <string name="card_total">Total saldo :</string>
-    <string name="card_pengeluaran">Total pengeluaran :</string>
-    <string name="card_pemasukan">Total pemasukan :</string>
+    <string name="welcome">Welcome</string>
+    <string name="financial_report">Financial Report</string>
+    <string name="card_total">Current Balance</string>
+    <string name="card_pengeluaran">Expend</string>
+    <string name="card_pemasukan">Income</string>
 
-    <string name="notes">Keterangan</string>
-    <string name="notes_add">Masukkan keterangan</string>
-    <string name="money">Jumlah uang</string>
-    <string name="money_add">Masukkan jumlah uang</string>
-    <string name="date">Dibuat tanggal : </string>
+    <string name="notes">Description</string>
+    <string name="notes_add">type your description here</string>
+    <string name="money">Amount</string>
+    <string name="money_add">Rp 0 ,00</string>
+    <string name="date">Create on : </string>
     <string name="date_add">0000–00–00</string>
-    <string name="save">Simpan</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="type">Type</string>
+    <string name="type_add">Select Type</string>
 
-    <string name="select_month_year">Pilih Bulan</string>
+    <string name="select_month_year">Select Month</string>
     <string-array name="month">
-        <item>Januari</item>
-        <item>Februari</item>
-        <item>Maret</item>
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
         <item>April</item>
         <item>Mei</item>
-        <item>Juni</item>
-        <item>Juli</item>
-        <item>Agustus</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
         <item>September</item>
-        <item>Oktober</item>
+        <item>October</item>
         <item>November</item>
-        <item>Desember</item>
+        <item>December</item>
+    </string-array>
+
+    <string-array name="type_drop_down">
+        <item>Income</item>
+        <item>Expense</item>
     </string-array>
 </resources>

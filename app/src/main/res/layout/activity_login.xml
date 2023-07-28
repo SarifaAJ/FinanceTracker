@@ -34,9 +34,10 @@
         android:textColor="@color/black"
         android:inputType="text"
         android:hint="@string/username"
-        android:textColorHint="@color/grey"/>
+        android:textColorHint="@color/date"/>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8sdp"
@@ -44,9 +45,7 @@
         android:layout_marginEnd="@dimen/_8sdp"
         android:background="@drawable/rectangle_line"
         android:hint="@string/password"
-        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
+        android:textColorHint="@color/date"
         app:passwordToggleDrawable="@drawable/visibility"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/grey">
@@ -74,6 +73,7 @@
         android:layout_marginTop="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_16sdp"
         android:backgroundTint="@color/green_2"
+        android:fontFamily="@font/poppins_medium"
         android:text="@string/log_in"
         android:textColor="@color/green_4"
         android:textSize="@dimen/_12sdp" />
@@ -85,6 +85,7 @@
         android:layout_marginTop="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_8sdp"
         android:clickable="true"
+        android:fontFamily="@font/poppins_medium"
         android:text="@string/question_2"
         android:textSize="@dimen/_10sdp"
         android:textColor="@color/grey"

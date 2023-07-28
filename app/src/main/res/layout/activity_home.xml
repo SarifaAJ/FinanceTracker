@@ -4,8 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_3"
+    android:background="@color/white"
     tools:context=".ui.HomeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_152sdp"
+        android:background="@color/green"
+        android:layout_alignParentTop="true"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,177 +21,214 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp">
 
             <ImageView
                 android:id="@+id/picture"
-                android:layout_width="@dimen/_32sdp"
-                android:layout_height="@dimen/_32sdp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
                 android:foreground="@drawable/round_person_24"
                 android:foregroundGravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/rectangle" />
 
             <TextView
                 android:id="@+id/greeting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@id/picture"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/edt_username"
-                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:fontFamily="@font/poppins_medium"
                 android:text="@string/welcome"
-                android:textColor="@color/green_1"
-                android:textSize="@dimen/_12sdp" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/_24sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/edt_username"
+                app:layout_constraintStart_toEndOf="@id/picture"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/edt_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@id/picture"
-                app:layout_constraintTop_toBottomOf="@id/greeting"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:fontFamily="@font/poppins_medium"
                 android:text="@string/username"
-                android:textColor="@color/green_1"
-                android:textSize="@dimen/_14sdp"
-                android:textStyle="bold" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/_24sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/picture"
+                app:layout_constraintTop_toBottomOf="@id/greeting" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="@dimen/_8sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_12sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/card_total"
+                    android:textColor="@color/summary_grey_1"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:id="@+id/edt_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/money"
+                    android:textColor="@color/summary_grey_1_2"
+                    android:textSize="@dimen/_22sdp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:background="@color/summary_separator"/>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_pemasukan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="@string/card_pemasukan"
+                            android:textColor="@color/summary_grey_2"
+                            android:textSize="@dimen/_8sdp"/>
+
+                        <TextView
+                            android:id="@+id/edt_pemasukan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="@string/money"
+                            android:textColor="@color/summary_grey_2_2"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/view_2"
+                        android:layout_width="@dimen/_1sdp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginBottom="@dimen/_4sdp"
+                        android:background="@color/summary_separator"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_pengeluaran"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="@string/card_pengeluaran"
+                            android:textColor="@color/summary_grey_2"
+                            android:textSize="@dimen/_8sdp"/>
+
+                        <TextView
+                            android:id="@+id/edt_pengeluaran"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="@string/money"
+                            android:textColor="@color/summary_grey_2_2"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                </TableRow>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp">
 
             <TextView
-                android:id="@+id/tv_total"
+                android:id="@+id/financial_report"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:text="@string/card_total"
-                android:textColor="@color/green_1"
-                android:textSize="@dimen/_12sdp" />
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/financial_report"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/tv_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:textSize="@dimen/_14sdp"
-                android:textColor="@color/green_1"
-                android:text="@string/date"/>
-
-            <ImageButton
+            <androidx.cardview.widget.CardView
                 android:id="@+id/btn_monthPicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:background="@android:color/transparent"
-                app:srcCompat="@drawable/round_calendar_month_24" />
-        </TableRow>
+                android:backgroundTint="@color/date"
+                app:cardCornerRadius="@dimen/_8sdp">
 
-        <TextView
-            android:id="@+id/edt_total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_4sdp"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:text="@string/money"
-            android:textColor="@color/green_1"
-            android:textSize="@dimen/_24sdp"
-            android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_8sdp"
+                    android:orientation="horizontal">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_8sdp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_4sdp"
+                        android:background="@android:color/transparent"
+                        app:srcCompat="@drawable/round_calendar_month_24" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:id="@+id/up"
-                    android:layout_width="@dimen/_32sdp"
-                    android:layout_height="@dimen/_32sdp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/round_trending_up_24" />
-
-                <TextView
-                    android:id="@+id/tv_pemasukan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_36sdp"
-                    android:text="@string/card_pemasukan"
-                    android:textColor="@color/green_1"
-                    android:textSize="@dimen/_12sdp"
-                    app:layout_constraintBottom_toTopOf="@id/edt_pemasukan"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/edt_pemasukan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_36sdp"
-                    android:text="@string/money"
-                    android:textColor="@color/green_1"
-                    android:textSize="@dimen/_14sdp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_pemasukan" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:id="@+id/down"
-                    android:layout_width="@dimen/_32sdp"
-                    android:layout_height="@dimen/_32sdp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:srcCompat="@drawable/round_trending_down_24" />
-
-                <TextView
-                    android:id="@+id/tv_pengeluaran"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/edt_pengeluaran"
-                    android:layout_marginStart="@dimen/_36sdp"
-                    android:text="@string/card_pengeluaran"
-                    android:textColor="@color/green_1"
-                    android:textSize="@dimen/_12sdp"/>
-
-                <TextView
-                    android:id="@+id/edt_pengeluaran"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_pengeluaran"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginStart="@dimen/_36sdp"
-                    android:text="@string/money"
-                    android:textColor="@color/green_1"
-                    android:textSize="@dimen/_14sdp"
-                    android:textStyle="bold" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/tv_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/date"
+                        android:textColor="@color/tv_date"
+                        android:textSize="@dimen/_11sdp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
         </TableRow>
 
@@ -193,21 +236,23 @@
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_8sdp"
-            android:background="@color/green_3"
-            app:tabIndicator="@drawable/tab_indicator"
-            app:tabIndicatorAnimationMode="elastic"
-            app:tabIndicatorColor="@null"
-            app:tabIndicatorGravity="stretch"
-            app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="@color/white" />
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@drawable/rectangle_tab"
+            android:backgroundTint="@color/date"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_11sdp"
+            app:tabIndicatorColor="@color/tab_line"
+            app:tabInlineLabel="true"
+            app:tabTextColor="@color/tv_tab"
+            app:tabSelectedTextColor="@color/tv_tab"/>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/green_3"/>
+            android:background="@color/white"/>
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -218,7 +263,7 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/_16sdp"
         android:clickable="true"
-        android:backgroundTint="@color/green_2"
+        android:backgroundTint="@color/FAB_green"
         android:src="@drawable/round_add_24" />
 
 </RelativeLayout>

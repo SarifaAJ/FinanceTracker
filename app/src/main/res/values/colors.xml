@@ -5,12 +5,6 @@
     <color name="light_grey">#E7E7E7</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="blueP_1">#304c89</color>
-    <color name="blueP_2">#648de5</color>
-    <color name="blueP_3">#9eb7e5</color>
-    <color name="blueP_4">#e8e5da</color>
-    <color name="blueP_5">#cdc392</color>
-
     <color name="greenP_1">#132a13</color>
     <color name="greenP_2">#31572c</color>
     <color name="greenP_3">#4f772d</color>
@@ -21,5 +15,19 @@
     <color name="green_2">#609966</color>
     <color name="green_3">#9DC08B</color>
     <color name="green_4">#EDF1D6</color>
+
+    <color name="green">#88EF21</color>
+    <color name="tab_line">#BAF67E</color>
+    <color name="FAB_green">#CEF8A4</color>
+    <color name="summary_grey_1">#A6A6A6</color>
+    <color name="summary_grey_1_2">#191616</color>
+    <color name="summary_grey_2">#A19F9F</color>
+    <color name="summary_grey_2_2">#403E3E</color>
+    <color name="summary_separator">#E6E2E2</color>
+    <color name="tv_tab">#E8E8E8</color>
+    <color name="date">#A19F9F</color>
+    <color name="tv_date">#EDEDED</color>
+    <color name="delete">#403E3E</color>
+    <color name="notes_bg">#F0F0F0</color>
 
 </resources>

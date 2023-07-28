@@ -7,8 +7,8 @@
     android:background="@drawable/rectangle"
     android:padding="@dimen/_8sdp"
     android:layout_gravity="center"
-    android:backgroundTint="@color/white"
-    app:cardCornerRadius="@dimen/_16sdp">
+    android:backgroundTint="@color/green"
+    app:cardCornerRadius="@dimen/_8sdp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,25 +19,33 @@
             android:id="@+id/tv_money"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/_14sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_16sdp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:text="@string/money"/>
         <TextView
             android:id="@+id/tv_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:textSize="@dimen/_12sdp"
-            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/white"
             android:text="@string/notes"/>
         <TextView
             android:id="@+id/tv_date"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:background="@drawable/rectangle_date"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingTop="@dimen/_4sdp"
+            android:paddingBottom="@dimen/_4sdp"
+            android:fontFamily="@font/poppins_medium"
             android:textSize="@dimen/_10sdp"
-            android:textColor="@color/green_2"
+            android:textColor="@color/green"
             android:text="@string/date"/>
 
     </LinearLayout>

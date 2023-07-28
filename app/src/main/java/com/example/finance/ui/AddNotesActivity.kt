@@ -5,29 +5,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.finance.R
 import com.example.finance.database.MyApp.Companion.db
 import com.example.finance.database.model.FinanceModel
 import com.example.finance.databinding.ActivityAddNotesBinding
-import com.google.android.material.chip.Chip
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
-import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
 class AddNotesActivity : AppCompatActivity() {
     private lateinit var binding : ActivityAddNotesBinding
-    private var selectedChip: String? = null
 
     private var rawNumericValue: Long = 0
-
-    // calendar
-    private val calendar: Calendar = Calendar.getInstance()
-    private var selectedYear: Int = calendar.get(Calendar.YEAR)
-    private var selectedMonth: Int = calendar.get(Calendar.MONTH)
-
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +33,7 @@ class AddNotesActivity : AppCompatActivity() {
         }
 
         // Set data.date dengan waktu saat ini
-        binding.date.text = getCurrentTime()
+        binding.tvDate.text = getCurrentTimeShowFormat()
 
         // Set currency format for edtMoney
         val currencyFormatter = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
@@ -72,7 +64,7 @@ class AddNotesActivity : AppCompatActivity() {
             }
         })
 
-        // save button
+// save button
         binding.saveBtn.setOnClickListener {
             val data = FinanceModel()
             if (rawNumericValue != 0L) {
@@ -83,13 +75,19 @@ class AddNotesActivity : AppCompatActivity() {
             }
 
             data.desc = binding.edtDesc.text.toString()
-            data.date = binding.date.text.toString()
+            data.date = getCurrentTime()
 
-            if (selectedChip.isNullOrEmpty()) {
+            val selectedType = binding.typeDropdown.text.toString()
+
+            if (selectedType.isEmpty()) {
                 Toast.makeText(this@AddNotesActivity, "Harap pilih jenis data", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             } else {
-                data.type = selectedChip!!
+                data.type = if (selectedType == "Income") {
+                    "Pemasukan"
+                } else {
+                    "Pengeluaran"
+                }
             }
 
             val financeDao = db.financeDao()
@@ -97,41 +95,27 @@ class AddNotesActivity : AppCompatActivity() {
             if (data.desc.isEmpty()) {
                 Toast.makeText(this@AddNotesActivity, "Harap lengkapi semua data", Toast.LENGTH_SHORT).show()
             } else {
-                if (data.type == "Pengeluaran") {
-                    financeDao?.insert(data) // Insert data ke tabel pengeluaran
-                } else if (data.type == "Pemasukan") {
-                    financeDao?.insert(data) // Insert data ke tabel pemasukan
-                } // Menggunakan metode insert yang mencakup pemasukan dan pengeluaran
-
+                financeDao?.insert(data)
                 Toast.makeText(this@AddNotesActivity, "Catatan pengeluaran berhasil ditambahkan", Toast.LENGTH_SHORT).show()
                 this@AddNotesActivity.finish()
             }
         }
 
-        // Chip Group Listener
-        binding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
-            val chip: Chip? = findViewById(checkedId)
-            chip?.let {
-                selectedChip = when (it.id) {
-                    R.id.chip_pengeluaran -> "Pengeluaran"
-                    R.id.chip_pemasukan -> "Pemasukan"
-                    else -> null
-                }
-            }
-        }
+        // dropdown
+        val type = resources.getStringArray(R.array.type_drop_down)
+        val typeAdapter = ArrayAdapter(this, R.layout.dropdown_item, type)
+        binding.typeDropdown.setAdapter(typeAdapter)
+
     }
 
     // retrieve date in real-time
-    private fun getCurrentTime(): String {
+    private fun getCurrentTimeShowFormat(): String {
         val sdf = SimpleDateFormat("HH:mm dd MMMM yyyy", Locale("id"))
         return sdf.format(Date())
     }
 
-    private fun getFormattedDate(year: Int, month: Int): String {
-        val calendar = Calendar.getInstance()
-        calendar.set(year, month, 1)
-
-        val simpleDateFormat = SimpleDateFormat("MMMM yyyy", Locale.getDefault())
-        return simpleDateFormat.format(calendar.time)
+    private fun getCurrentTime(): String {
+        val sdf = SimpleDateFormat("yyy-MM-dd HH:mm:ss", Locale("id"))
+        return sdf.format(Date())
     }
 }
