@@ -72,10 +72,10 @@
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_16sdp"
-        android:backgroundTint="@color/green_2"
+        android:backgroundTint="@color/green"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/log_in"
-        android:textColor="@color/green_4"
+        android:textColor="@color/white"
         android:textSize="@dimen/_12sdp" />
 
     <TextView
