@@ -10,10 +10,12 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="confirm">Confirm Password</string>
-    <string name="question">Apakah Anda sudah menjadi pengguna? Masuk</string>
-    <string name="question_2">Apakah anda belum terdaftar? Daftar</string>
+    <string name="question">Are you already a user? Log in</string>
+    <string name="question_2">Are you not registered yet? Sign up</string>
     <string name="sign_up">SIGN UP</string>
+    <string name="sign_in">SIGN IN</string>
     <string name="log_in">LOG IN</string>
+    <string name="enter">ENTER</string>
 
     <string name="add_notes">Add Note</string>
     <string name="edit_notes">Edit Note</string>
@@ -21,8 +23,8 @@
     <string name="welcome">Welcome</string>
     <string name="financial_report">Financial Report</string>
     <string name="card_total">Current Balance</string>
-    <string name="card_pengeluaran">Expend</string>
-    <string name="card_pemasukan">Income</string>
+    <string name="expend_card">Expend</string>
+    <string name="income_card">Income</string>
 
     <string name="notes">Description</string>
     <string name="notes_add">type your description here</string>
@@ -34,6 +36,16 @@
     <string name="delete">Delete</string>
     <string name="type">Type</string>
     <string name="type_add">Select Type</string>
+
+    <string name="setting">Setting</string>
+    <string name="security">Security</string>
+    <string name="enable_password">Enable Password</string>
+    <string name="set_password">Set Password</string>
+    <string name="disable_password">Disable Password</string>
+    <string name="forget_password">Forget password?</string>
+    <string name="change_password">Change Password</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
 
     <string name="select_month_year">Select Month</string>
     <string-array name="month">

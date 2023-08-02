@@ -1,4 +1,4 @@
-package com.example.finance.ui.login
+package com.example.finance.ui.password
 
 import android.content.Context
 import android.content.Intent
@@ -8,27 +8,36 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import com.example.finance.database.helper.DBHelper
-import com.example.finance.databinding.ActivityLoginBinding
+import com.example.finance.databinding.ActivityDisablePasswordBinding
 import com.example.finance.ui.HomeActivity
-import com.example.finance.ui.password.ForgetPasswordActivity
+import com.example.finance.ui.SettingActivity
 
-class LoginActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityLoginBinding
+class DisablePasswordActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityDisablePasswordBinding
     private lateinit var db: DBHelper
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityDisablePasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         db = DBHelper(this)
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
-        // button to sign up
-        binding.forgetPass.setOnClickListener {
-            val moveIntent = Intent(this@LoginActivity, ForgetPasswordActivity::class.java)
+        // button to home
+        binding.btnLogin.setOnClickListener {
+            val moveIntent = Intent(this@DisablePasswordActivity, SettingActivity::class.java)
             startActivity(moveIntent)
+        }
+
+        // back button
+        binding.btnBackArrow.setOnClickListener {
+            // Set the switch state to ON before navigating back to SettingActivity
+            sharedPreferences.edit()
+                .putBoolean("switchState", true)
+                .apply()
+            finish()
         }
 
         // button to confirm your username and password before you go to home activity
@@ -45,6 +54,8 @@ class LoginActivity : AppCompatActivity() {
                     val editor = sharedPreferences.edit()
                     editor.putString("username", usernameText)
                     editor.apply()
+
+                    Toast.makeText(this, "Password Disabled", Toast.LENGTH_SHORT).show()
 
                     // Sign up successful, set the switch state to false
                     sharedPreferences.edit()

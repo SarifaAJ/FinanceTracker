@@ -5,16 +5,11 @@
     <color name="light_grey">#E7E7E7</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="greenP_1">#132a13</color>
-    <color name="greenP_2">#31572c</color>
-    <color name="greenP_3">#4f772d</color>
-    <color name="greenP_4">#90a955</color>
-    <color name="greenP_5">#ecf39e</color>
+    <color name="limeade_1">#A1FFCE</color>
+    <color name="limeade_2">#FAFFD1</color>
 
-    <color name="green_1">#40513B</color>
-    <color name="green_2">#609966</color>
-    <color name="green_3">#9DC08B</color>
-    <color name="green_4">#EDF1D6</color>
+    <color name="jonquil_1">#FFEEEE</color>
+    <color name="jonquil_2">#DDEFBB</color>
 
     <color name="green">#88EF21</color>
     <color name="tab_line">#BAF67E</color>
@@ -29,5 +24,6 @@
     <color name="tv_date">#EDEDED</color>
     <color name="delete">#403E3E</color>
     <color name="notes_bg">#F0F0F0</color>
+    
 
 </resources>

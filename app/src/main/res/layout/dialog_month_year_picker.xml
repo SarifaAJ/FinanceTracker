@@ -13,7 +13,7 @@
         android:gravity="center_horizontal"
         android:layout_margin="@dimen/_12sdp"
         android:text="@string/select_month_year"
-        android:textColor="@color/green_2"
+        android:textColor="@color/FAB_green"
         android:textSize="@dimen/_24sdp"
         android:textStyle="bold" />
 
@@ -37,7 +37,7 @@
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/green_3"
+            android:backgroundTint="@color/FAB_green"
             android:text="@android:string/cancel"
             android:layout_marginEnd="@dimen/_16sdp" />
 
@@ -45,7 +45,7 @@
             android:id="@+id/btnOk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/green_3"
+            android:backgroundTint="@color/FAB_green"
             android:text="@android:string/ok" />
 
     </LinearLayout>

@@ -10,11 +10,11 @@ import com.example.finance.R
 import com.example.finance.adapter.OnBoardingViewPagerAdapter
 import com.example.finance.database.model.OnBoardingData
 import com.example.finance.databinding.ActivityMainBinding
+import com.example.finance.ui.login.EnterActivity
 import com.example.finance.ui.login.LoginActivity
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var onBoardingViewPager: ViewPager
@@ -32,9 +32,20 @@ class MainActivity : AppCompatActivity() {
         sharedPreferences = applicationContext.getSharedPreferences("pref", Context.MODE_PRIVATE)
 
         if (restorePrefData()) {
-            val intent = Intent(applicationContext, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
+            // Check the switch state from SharedPreferences
+            val switchState = sharedPreferences.getBoolean("switchState", false)
+
+            if (switchState) {
+                // Switch is ON, go to LoginActivity
+                val intent = Intent(applicationContext, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                // Switch is OFF, go to EnterActivity
+                val intent = Intent(applicationContext, EnterActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         } else {
             setPrefData()
 

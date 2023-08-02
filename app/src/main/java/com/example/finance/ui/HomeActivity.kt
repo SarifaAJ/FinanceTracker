@@ -52,6 +52,12 @@ class HomeActivity : AppCompatActivity() {
             startActivity(moveIntent)
         }
 
+        //setting button
+        binding.setting.setOnClickListener {
+            val moveIntent = Intent(this@HomeActivity, SettingActivity::class.java)
+            startActivity(moveIntent)
+        }
+
         // view pager
         viewPager2 = binding.viewPager2
         val homePageAdapter = HomePageAdapter(this)

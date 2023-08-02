@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:background="@drawable/limeade_bg"
     android:padding="@dimen/_16sdp"
-    tools:context=".ui.login.LoginActivity">
+    tools:context=".ui.login.EnterActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -40,37 +40,8 @@
         android:hint="@string/username"
         android:textColorHint="@color/date"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:background="@drawable/rectangle_line"
-        android:hint="@string/password"
-        android:textColorHint="@color/date"
-        app:passwordToggleDrawable="@drawable/visibility"
-        app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@color/grey">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:ems="10"
-            android:hint="@string/password"
-            android:imeOptions="actionDone"
-            android:inputType="textPassword"
-            android:paddingStart="@dimen/_12sdp"
-            android:paddingEnd="@dimen/_8sdp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey"
-            android:textSize="@dimen/_12sdp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_enter"
         android:layout_width="@dimen/_128sdp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -81,18 +52,5 @@
         android:text="@string/sign_in"
         android:textColor="@color/white"
         android:textSize="@dimen/_12sdp" />
-
-    <TextView
-        android:id="@+id/forget_pass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_8sdp"
-        android:clickable="true"
-        android:fontFamily="@font/poppins_medium"
-        android:text="@string/forget_password"
-        android:textSize="@dimen/_10sdp"
-        android:textColor="@color/grey"
-        android:textAlignment="center"/>
 
 </LinearLayout>
