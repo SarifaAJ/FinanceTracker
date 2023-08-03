@@ -71,11 +71,11 @@ class HomeActivity : AppCompatActivity() {
 
         supportActionBar?.elevation = 0f
 
-        // Mendapatkan data username dari SharedPreferences
+        // Get username data from SharedPreferences
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         username = sharedPreferences.getString("username", "") ?: ""
 
-        // Mengatur nilai username ke edt_username
+        // Set the username value to edt_username
         binding.edtUsername.text = username
 
         // to show the amount of a nominal data

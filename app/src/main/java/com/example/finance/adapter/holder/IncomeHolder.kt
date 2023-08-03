@@ -11,10 +11,10 @@ import java.text.NumberFormat
 import java.util.Locale
 
 class IncomeHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val tvMoney = itemView.findViewById<TextView>(R.id.tv_money)
-    val tvDesc = itemView.findViewById<TextView>(R.id.tv_desc)
-    val tvDate = itemView.findViewById<TextView>(R.id.tv_date)
-    val ctx = itemView.context
+    private val tvMoney = itemView.findViewById<TextView>(R.id.tv_money)
+    private val tvDesc = itemView.findViewById<TextView>(R.id.tv_desc)
+    private val tvDate = itemView.findViewById<TextView>(R.id.tv_date)
+    private val ctx = itemView.context
 
     fun setData(model : FinanceModel) {
         // currency format
@@ -24,7 +24,7 @@ class IncomeHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         tvDesc.text = model.desc
         tvDate.text = model.date
-        //menambahkan fungsi ketika rootview dari textview nama di klik
+        // add a function when the rootview of the name textview is clicked
         tvMoney.rootView.setOnClickListener {
             val go = Intent(ctx, EditIncomeNotesActivity::class.java)
             go.putExtra("income data", model)

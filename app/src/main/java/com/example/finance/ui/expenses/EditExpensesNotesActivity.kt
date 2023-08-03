@@ -96,7 +96,7 @@ class EditExpensesNotesActivity : AppCompatActivity() {
             if (rawNumericValue != 0L) {
                 data.nominal = (rawNumericValue / 100).toInt()
             } else {
-                Toast.makeText(this@EditExpensesNotesActivity, "Harap isi data nominal", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@EditExpensesNotesActivity, "Please fill out the nominal data", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -112,24 +112,24 @@ class EditExpensesNotesActivity : AppCompatActivity() {
             }
             val financeDao = db.financeDao()
             if (data.type == "Pengeluaran") {
-                financeDao?.update(data) // Update data pada tabel pengeluaran
+                financeDao?.update(data) // Update data in the expenses table
             } else if (data.type == "Pemasukan") {
-                financeDao?.update(data) // Update data pada tabel pemasukan
+                financeDao?.update(data) // Update data in the income table
             }
 
-            Toast.makeText(this@EditExpensesNotesActivity, "Catatan berhasil diperbarui", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@EditExpensesNotesActivity, "Note updated successfully", Toast.LENGTH_SHORT).show()
             this@EditExpensesNotesActivity.finish()
         }
 
         binding.btnDelete.setOnClickListener {
             val financeDao = db.financeDao()
             if (data.type == "Pengeluaran") {
-                financeDao?.delete(data) // Hapus data pada tabel pengeluaran
+                financeDao?.delete(data) // Delete data in the expenses table
             } else if (data.type == "Pemasukan") {
-                financeDao?.delete(data) // Hapus data pada tabel pemasukan
+                financeDao?.delete(data) // Delete data in the income table
             }
 
-            Toast.makeText(this@EditExpensesNotesActivity, "Catatan berhasil dihapus", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@EditExpensesNotesActivity, "Note successfully deleted", Toast.LENGTH_SHORT).show()
             this@EditExpensesNotesActivity.finish()
         }
 

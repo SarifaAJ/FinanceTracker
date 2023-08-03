@@ -32,7 +32,7 @@ class AddNotesActivity : AppCompatActivity() {
             finish()
         }
 
-        // Set data.date dengan waktu saat ini
+        // Set data.date with the current time
         binding.tvDate.text = getCurrentTimeShowFormat()
 
         // Set currency format for edtMoney
@@ -64,13 +64,13 @@ class AddNotesActivity : AppCompatActivity() {
             }
         })
 
-// save button
+        // save button
         binding.saveBtn.setOnClickListener {
             val data = FinanceModel()
             if (rawNumericValue != 0L) {
                 data.nominal = (rawNumericValue / 100).toInt()
             } else {
-                Toast.makeText(this@AddNotesActivity, "Harap isi data nominal", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@AddNotesActivity, "Please fill out the nominal data", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -80,7 +80,7 @@ class AddNotesActivity : AppCompatActivity() {
             val selectedType = binding.typeDropdown.text.toString()
 
             if (selectedType.isEmpty()) {
-                Toast.makeText(this@AddNotesActivity, "Harap pilih jenis data", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@AddNotesActivity, "Please select the data type", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             } else {
                 data.type = if (selectedType == "Income") {
@@ -93,10 +93,10 @@ class AddNotesActivity : AppCompatActivity() {
             val financeDao = db.financeDao()
 
             if (data.desc.isEmpty()) {
-                Toast.makeText(this@AddNotesActivity, "Harap lengkapi semua data", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@AddNotesActivity, "Please complete all data", Toast.LENGTH_SHORT).show()
             } else {
                 financeDao?.insert(data)
-                Toast.makeText(this@AddNotesActivity, "Catatan pengeluaran berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@AddNotesActivity, "Expense record successfully added", Toast.LENGTH_SHORT).show()
                 this@AddNotesActivity.finish()
             }
         }

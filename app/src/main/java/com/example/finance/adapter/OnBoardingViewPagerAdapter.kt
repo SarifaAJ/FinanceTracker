@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import com.example.finance.R
-import com.example.finance.database.model.OnBoardingData
+import com.example.finance.database.dataclass.OnBoardingData
 
 class OnBoardingViewPagerAdapter(private var context: Context, private var onBoardingDataList: List<OnBoardingData>) : PagerAdapter() {
     override fun isViewFromObject(view: View, `object`: Any): Boolean {

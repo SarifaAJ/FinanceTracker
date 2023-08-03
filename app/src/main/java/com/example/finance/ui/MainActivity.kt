@@ -8,7 +8,7 @@ import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import com.example.finance.R
 import com.example.finance.adapter.OnBoardingViewPagerAdapter
-import com.example.finance.database.model.OnBoardingData
+import com.example.finance.database.dataclass.OnBoardingData
 import com.example.finance.databinding.ActivityMainBinding
 import com.example.finance.ui.login.EnterActivity
 import com.example.finance.ui.login.LoginActivity
