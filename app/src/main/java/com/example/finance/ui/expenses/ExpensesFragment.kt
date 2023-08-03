@@ -31,11 +31,14 @@ class ExpensesFragment : Fragment() {
         val expensesDao = db.financeDao()
         val expensesList = expensesDao?.getAllExpenses()
 
-        adapter = ExpensesAdapter(expensesList!!)
+        adapter = ExpensesAdapter()
 
         val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
+
+        // Submit the list of expenses to the adapter using submitList
+        adapter.submitList(expensesList)
     }
 
     override fun onResume() {
@@ -45,7 +48,6 @@ class ExpensesFragment : Fragment() {
         val expensesDao = db.financeDao()
         val expensesList = expensesDao?.getAllExpenses()
 
-        adapter.updateData(expensesList!!)
+        adapter.submitList(expensesList)
     }
-
 }

@@ -55,4 +55,26 @@ class FinanceModel() : Parcelable{
             return arrayOfNulls(size)
         }
     }
+
+    // Implement equals() method
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is FinanceModel) return false
+
+        // Customize the comparison based on your fields
+        return id == other.id &&
+                nominal == other.nominal &&
+                desc == other.desc &&
+                date == other.date
+    }
+
+    // Implement hashCode() method
+    override fun hashCode(): Int {
+        // Customize the hashCode based on your fields
+        var result = id
+        result = 31 * result + nominal.hashCode()
+        result = 31 * result + desc.hashCode()
+        result = 31 * result + date.hashCode()
+        return result
+    }
 }

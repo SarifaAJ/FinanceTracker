@@ -29,12 +29,14 @@ class IncomeFragment : Fragment() {
         val incomeDao = db.financeDao()
         val incomeList = incomeDao?.getAllIncome()
 
-        adapter = IncomeAdapter(incomeList!!)
+        adapter = IncomeAdapter()
         val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
-    }
 
+        // Submit the list of expenses to the adapter using submitList
+        adapter.submitList(incomeList)
+    }
     override fun onResume() {
         super.onResume()
 
@@ -42,6 +44,6 @@ class IncomeFragment : Fragment() {
         val incomeDao = db.financeDao()
         val incomeList = incomeDao?.getAllIncome()
 
-        adapter.updateData(incomeList!!)
+        adapter.submitList(incomeList)
     }
 }
